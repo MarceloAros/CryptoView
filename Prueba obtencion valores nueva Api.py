@@ -2,10 +2,9 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
-url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 parameters = {
-  'start':'1',
-  'limit':'5000',
+  'symbol':'BTC,ETH,XRP,BCH,EOS,LTC',
   'convert':'USD'
 }
 headers = {
