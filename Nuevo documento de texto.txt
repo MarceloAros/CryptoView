@@ -1,0 +1,4 @@
+hacer modelo relacional para bases de datos sql -- para presentar en el hito 3
+integra la obtencion de mas monedas -100
+grafico de velas -- hito 4
+agregar funcionalidad para obtener los datos desde la base de datos

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#Algoritmo para recuperar variaciones de precio de la bitcoin cada 1 hora
+#Algoritmo para recuperar variaciones de precio de la bitcoin cada 30 segundos
 import csv
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler

@@ -25,7 +25,7 @@ def some_job():
 #generar código cada 1 hora
 
 scheduler = BlockingScheduler()
-scheduler.add_job(some_job, 'interval', hours=1)
+scheduler.add_job(some_job, 'interval', seconds=10)
 scheduler.start()
 
 """def ObtenerValorBtc():
