@@ -11,7 +11,7 @@ var graficaBitcoin = new Morris.Line({
     { Hora: '12', value: 20 }
   ],
   // The name of the data record attribute that contains x-values.
-  xkey: 'year',
+  xkey: 'Hora',
   // A list of names of data record attributes that contain y-values.
   ykeys: ['value'],
   // Labels for the ykeys -- will be displayed when you hover over the
@@ -45,7 +45,7 @@ var graficaEthereum = new Morris.Line({
     { Hora: '12', value: 20 }
   ],
   // The name of the data record attribute that contains x-values.
-  xkey: 'year',
+  xkey: 'Hora',
   // A list of names of data record attributes that contain y-values.
   ykeys: ['value'],
   // Labels for the ykeys -- will be displayed when you hover over the
