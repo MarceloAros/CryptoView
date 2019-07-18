@@ -6,7 +6,7 @@ class Config(object):
 class DevelopmentConfig(Config):
 	"""docstring for DevelopmentConfig"""
 	DEBUG = True
-	SQLALCHEMY_DATABASE_URI= 'mysql://root:@localhost/flask'
+	SQLALCHEMY_DATABASE_URI= 'mysql://root:Cryptoview@localhost/flask'
 		
 
 
