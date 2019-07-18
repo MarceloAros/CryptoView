@@ -4,12 +4,12 @@ from flask import render_template
 #import datetime
 #import json
 import requests
-from config import DevelopmentConfig
+#from config import DevelopmentConfig
 #from models import db
 #from models import User
 
 app = Flask(__name__)#nuevo objeto
-app.config.from_object(DevelopmentConfig)
+#app.config.from_object(DevelopmentConfig)
 
 @app.route('/')#rutas a entrar por el usuario
 def index():
