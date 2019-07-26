@@ -1,0 +1,1 @@
+Para desplegar el software, ejeturar obtencion_valores_nueva_Api.py y main.py 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-with, initial-scale = 1.0">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css') }}">
+  
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/morris.css') }}">
+  <script type="text/javascript" href="{{url_for('static', filename='js/morris.min.js') }}"></script>
+</head>
+<body>
+
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+  {
+  "width": "1300",
+  "height": "490",
+  "defaultColumn": "overview",
+  "screener_type": "crypto_mkt",
+  "displayCurrency": "BTC",
+  "colorTheme": "light",
+  "transparency": false,
+  "locale": "es"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+</body>
+</html>

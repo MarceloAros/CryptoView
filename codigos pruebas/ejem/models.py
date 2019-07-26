@@ -1,4 +1,3 @@
-
 """from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -14,15 +13,15 @@ import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
 
-def insertInTableValor(Precio,Volumen_24h,Cambio_1h,Cambio_24h,Cambio_7d,Capitalizacion,Ultima_actualizacion, Moneda_idMoneda):
+def insertInTableValor(Precio,Volumen_24h,Cambio_1h,Cambio_24h,Cambio_7d,Capitalizacion,Ultima_actualizacion):
 	try:
 		connection = mysql.connector.connect(host='localhost',
 							 database='mydb',
 							 user='root',
 							 password='Cryptoview')
 		cursor = connection.cursor(prepared=True)
-		sql_insert_query = """ INSERT INTO Valor (Precio, Volumen_24h, Cambio_1h, Cambio_24h, Cambio_7d, Capitalizacion, Ultima_actualizacion, Moneda_idMoneda) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"""
-		insert_tuple = (Precio, Volumen_24h, Cambio_1h, Cambio_24h, Cambio_7d, Capitalizacion, Ultima_actualizacion, Moneda_idMoneda)
+		sql_insert_query = """ INSERT INTO Valor (Precio, Volumen_24h, Cambio_1h, Cambio_24h, Cambio_7d, Capitalizacion, Ultima_actualizacion) VALUES (%s,%s,%s,%s,%s,%s,%s)"""
+		insert_tuple = (Precio, Volumen_24h, Cambio_1h, Cambio_24h, Cambio_7d, Capitalizacion, Ultima_actualizacion)
 		result  = cursor.execute(sql_insert_query, insert_tuple)
 		connection.commit()
 		print ("Record inserted successfully into python_users table")
@@ -43,7 +42,7 @@ def insertInTableMoneda(Nombre,Simbolo,Logo,Fecha_añadida,Ultima_actualizacion,
 							 user='root',
 							 password='Cryptoview')
 		cursor = connection.cursor(prepared=True)
-		sql_insert_query = """ INSERT INTO Moneda (Nombre, Simbolo, Logo, Fecha_añadida, Ultima_actualizacion, tag) VALUES (%s,%s,%s,%s,%s,%s)"""
+		sql_insert_query = """ INSERT INTO Moneda (Nombre, Simbolo, Logo, Fecha_añadida, Ultima_actualizacion, Tag) VALUES (%s,%s,%s,%s,%s,%s)"""
 		insert_tuple = (Nombre, Simbolo, Logo, Fecha_añadida, Ultima_actualizacion, tag)
 		result  = cursor.execute(sql_insert_query, insert_tuple)
 		connection.commit()

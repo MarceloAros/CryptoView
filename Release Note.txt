@@ -1,0 +1,8 @@
+CryptoView
+
+Version 0.5 
+
+Notas de la version:
+
+Para esta versión, se agregan, todas las funcionabilidades faltantes, para el correcto 
+funcionamiento, de la base de datos, y la interfaz web
