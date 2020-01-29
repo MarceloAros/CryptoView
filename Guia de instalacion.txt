@@ -1,0 +1,9 @@
+instalar python3
+instalar libreria de python de mysql
+instalar libreria de python flask
+instalar libreria de python json
+instalar libreria de python request
+instalar libreria de python de twitter
+instalar libreria de python de re
+instalar libreria de python textblob
+instalar libreria de python de apscheduler 
