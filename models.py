@@ -58,3 +58,33 @@ def insertInTableMoneda(Nombre,Simbolo,Logo,Fecha_añadida,Ultima_actualizacion,
 			connection.close()
 			print("MySQL connection is closed")            
 
+"""
+def recuperar_valores():
+	try:
+		connection = mysql.connector.connect(host='localhost',database='mydb',user='root',password='Cryptoview')
+		sql_select_Query = "select * from Valor"
+		cursor = connection.cursor()
+		cursor.execute(sql_select_Query)
+		records = cursor.fetchall()
+		print("Total number of rows in Valor is: ", cursor.rowcount)
+
+		print("\n")
+		for row in records:
+			print("Id = ", row[0], )
+			print("Precio = ", row[1])
+			print("Volumen_24h  = ", row[2])
+			print("Cambio_1h  = ", row[3])
+			print("Cambio_24h  = ", row[4])
+			print("Cambio_7d  = ", row[5])
+			print("Capitalizacion  = ", row[6])
+			print("Ultima_actualizacion  = ", row[7], "\n")
+
+	except Error as e:
+		print("Error reading data from MySQL table", e)
+	finally:
+		if (connection.is_connected()):
+			connection.close()
+			cursor.close()
+			print("MySQL connection is closed")
+
+recuperar_valores()"""

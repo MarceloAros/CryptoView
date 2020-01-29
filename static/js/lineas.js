@@ -130,7 +130,7 @@ var graficaLitecoin = new Morris.Line({
 
 function timer() {
 
-fetch('http://127.0.0.1:5000/data')
+fetch('http://10.40.5.35:5010/data')
 .then((respuestas) => {
   //var respuesta = JSON.stringify(respuestas);
   //console.log(respuestas);
@@ -198,4 +198,4 @@ fetch('http://127.0.0.1:5000/data')
 })
 }
 
-setInterval('timer()',1800000);
+setInterval('timer()',1000);

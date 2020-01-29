@@ -6,6 +6,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 from apscheduler.schedulers.blocking import BlockingScheduler
 import models
+import sentimental_analysis
 #import main
 
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -21,27 +22,33 @@ headers = {
 data2 = [
 	{
 		'BitcoinX': [],
-		'BitcoinY': []
+		'BitcoinY': [],
+		'CBitcoin':[]
 	},
 	{
 		'EthereumX': [],
-		'EthereumY': []
+		'EthereumY': [],
+		'CEthereum': []
 	},
 	{
 		'RippleX': [],
-		'RippleY': []
+		'RippleY': [],
+		'CRipple': []
 	},
 	{
 		'LitecoinX': [],
-		'LitecoinY': []
+		'LitecoinY': [],
+		'CLitecoin': []
 	},
 	{
 		'Bitcoin_CashX': [],
-		'Bitcoin_CashY': []
+		'Bitcoin_CashY': [],
+		'CBitcoin_Cash': []
 	},
 	{
 		'EOSX': [],
-		'EOSY': []
+		'EOSY': [],
+		'CEOS': []
 	}
 ]
 
@@ -49,18 +56,29 @@ def limpiar_datos(datos):
 	if len(datos[0]['BitcoinX']) > 5 :
 		data2[0]['BitcoinX'].pop(0)
 		data2[0]['BitcoinY'].pop(0)
+		data2[0]['CBitcoin'].pop(0)
 		data2[1]['EthereumX'].pop(0)
 		data2[1]['EthereumY'].pop(0)
+		data2[1]['Cthereum'].pop(0)
 		data2[2]['RippleX'].pop(0)
 		data2[2]['RippleY'].pop(0)
+		data2[2]['CRipple'].pop(0)
 		data2[3]['LitecoinX'].pop(0)
 		data2[3]['LitecoinY'].pop(0)
+		data2[3]['CLitecoin'].pop(0)
 		data2[4]['Bitcoin_CashX'].pop(0)
 		data2[4]['Bitcoin_CashY'].pop(0)
+		data2[4]['CBitcoin_Cash'].pop(0)
 		data2[5]['EOSX'].pop(0)
 		data2[5]['EOSY'].pop(0)
+		data2[5]['CEOS'].pop(0)
 
+#cambiar funcion y agregarle un parametro mas, para determinar cual dato
+#agregar, y hacer la comparacion del valores, con ese nuevo parametro
 def insertar_datos(precio1, Ultima_actualizacion1,ausiliar):
+	#hacer la comparacion con el nuevo parametro
+	#ausiliar pasa a ser una lista que tiene el id de los datos a ingresar
+	#cambiar eso, en las condiciones ejem ausiliar[0],ausiliar[1], etc. 
 	if ausiliar == 0:
 		data2[0]['BitcoinX'].append(precio1)
 		data2[0]['BitcoinY'].append(Ultima_actualizacion1)
@@ -89,6 +107,21 @@ def Escribir_datos(data):
                         dest.write("%s %s \n" %(i, p))
         dest.close()"""
 
+def Analisis_S():
+	x0=sentimental_analysis.main('bitcoin')
+	x1=sentimental_analysis.main('ethereum')
+	x2=sentimental_analysis.main('Ripple')
+	x3=sentimental_analysis.main('Litecoin')
+	x4=sentimental_analysis.main('Bitcoin_Cash')
+	x5=sentimental_analysis.main('EOS')
+	data2[0]['CBitcoin'].append(x0)
+	data2[1]['Cthereum'].append(x1)
+	data2[2]['CRipple'].append(x2)
+	data2[3]['CLitecoin'].append(x3)
+	data2[4]['CBitcoin_Cash'].append(x4)
+	data2[5]['CEOS'].append(x5)
+
+
 def obtenerValor():
 	session = Session()
 	session.headers.update(headers)
@@ -98,6 +131,7 @@ def obtenerValor():
 			data = json.loads(response.text)
 			#print (json.dumps(data,indent=4))
 			#insertar valor en tablas
+			#cambiar valor del ausiliar segun determine el ranking (lista)
 			ausiliar = 0
 			for curso in data['data']:
 				precio1 = float(curso['quote']['USD']['price'])
